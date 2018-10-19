@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = "Swiftilities"
-  s.version          = "0.17.0"
+  s.version          = "0.19.0"
   s.summary          = "A collection of useful Swift utilities."
-  s.swift_version    = '4.0'
+  s.swift_version    = '4.2'
 
   s.description      = <<-DESC
                         A collection of useful Swift utilities. All components and
@@ -39,6 +39,7 @@ Pod::Spec.new do |s|
   s.subspec "Acknowledgements" do |ss|
     ss.dependency 'Swiftilities/LicenseFormatter'
     ss.dependency 'Swiftilities/Deselection'
+    ss.dependency 'Swiftilities/Compatibility'
     ss.source_files = "Pod/Classes/Acknowledgements/*.swift"
     ss.frameworks   = ["UIKit"]
   end
@@ -48,10 +49,10 @@ Pod::Spec.new do |s|
   s.subspec "BetterButton" do |ss|
     ss.source_files = "Pod/Classes/BetterButton/*.swift"
     ss.dependency 'Swiftilities/Shapes'
-	ss.dependency 'Swiftilities/ImageHelpers'
-	ss.dependency 'Swiftilities/ColorHelpers'
-	ss.dependency 'Swiftilities/Math'
-	ss.frameworks   = ["UIKit"]
+    ss.dependency 'Swiftilities/ImageHelpers'
+    ss.dependency 'Swiftilities/ColorHelpers'
+    ss.dependency 'Swiftilities/Math'
+    ss.frameworks   = ["UIKit"]
   end
 
   # ColorHelpers
@@ -59,6 +60,12 @@ Pod::Spec.new do |s|
   s.subspec "ColorHelpers" do |ss|
     ss.source_files = "Pod/Classes/ColorHelpers/*.swift"
     ss.frameworks   = ["UIKit"]
+  end
+
+  # Compatibility
+
+  s.subspec "Compatibility" do |ss|
+    ss.source_files = "Pod/Classes/Compatibility/*.swift"
   end
 
   # CoreDataStack
@@ -141,7 +148,17 @@ Pod::Spec.new do |s|
   # Math
 
   s.subspec "Math" do |ss|
-    ss.source_files = "Pod/Classes/Math/*.swift"
+    ss.ios.deployment_target = '9.0'
+    ss.ios.source_files = "Pod/Classes/Math/*.swift"
+
+    ss.tvos.deployment_target = '9.0'
+    ss.tvos.source_files = "Pod/Classes/Math/*.swift"
+
+    ss.osx.deployment_target = '10.11'
+    ss.osx.source_files = "Pod/Classes/Math/*.swift"
+
+    ss.watchos.deployment_target = '2.2'
+    ss.watchos.source_files = "Pod/Classes/Math/*.swift"
   end
 
   # RootViewController
@@ -194,13 +211,14 @@ Pod::Spec.new do |s|
     ss.dependency 'Swiftilities/Acknowledgements'
     ss.dependency 'Swiftilities/BetterButton'
     ss.dependency 'Swiftilities/ColorHelpers'
+    ss.dependency 'Swiftilities/Compatibility'
     ss.dependency 'Swiftilities/CoreDataStack'
     ss.dependency 'Swiftilities/Deselection'
     ss.dependency 'Swiftilities/DeviceSize'
     ss.dependency 'Swiftilities/FormattedTextField'
     ss.dependency 'Swiftilities/Forms'
     ss.dependency 'Swiftilities/HairlineView'
-	ss.dependency 'Swiftilities/ImageHelpers'
+    ss.dependency 'Swiftilities/ImageHelpers'
     ss.dependency 'Swiftilities/Keyboard'
     ss.dependency 'Swiftilities/LicenseFormatter'
     ss.dependency 'Swiftilities/Lifecycle'

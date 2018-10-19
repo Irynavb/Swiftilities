@@ -1,8 +1,8 @@
 {
   "name": "Swiftilities",
-  "version": "0.17.0",
+  "version": "0.19.0",
   "summary": "A collection of useful Swift utilities.",
-  "swift_version": "4.0",
+  "swift_version": "4.2",
   "description": "A collection of useful Swift utilities. All components and\nextensions found in this library are consise enough on their own\nso as to not warrant their own project.",
   "homepage": "https://github.com/raizlabs/Swiftilities",
   "license": "MIT",
@@ -11,7 +11,7 @@
   },
   "source": {
     "git": "https://github.com/raizlabs/Swiftilities.git",
-    "tag": "0.17.0"
+    "tag": "0.19.0"
   },
   "platforms": {
     "ios": "9.0"
@@ -40,6 +40,9 @@
 
         ],
         "Swiftilities/Deselection": [
+
+        ],
+        "Swiftilities/Compatibility": [
 
         ]
       },
@@ -75,6 +78,10 @@
       "frameworks": [
         "UIKit"
       ]
+    },
+    {
+      "name": "Compatibility",
+      "source_files": "Pod/Classes/Compatibility/*.swift"
     },
     {
       "name": "CoreDataStack",
@@ -162,7 +169,24 @@
     },
     {
       "name": "Math",
-      "source_files": "Pod/Classes/Math/*.swift"
+      "platforms": {
+        "ios": "9.0",
+        "tvos": "9.0",
+        "osx": "10.11",
+        "watchos": "2.2"
+      },
+      "ios": {
+        "source_files": "Pod/Classes/Math/*.swift"
+      },
+      "tvos": {
+        "source_files": "Pod/Classes/Math/*.swift"
+      },
+      "osx": {
+        "source_files": "Pod/Classes/Math/*.swift"
+      },
+      "watchos": {
+        "source_files": "Pod/Classes/Math/*.swift"
+      }
     },
     {
       "name": "RootViewController",
@@ -225,6 +249,9 @@
 
         ],
         "Swiftilities/ColorHelpers": [
+
+        ],
+        "Swiftilities/Compatibility": [
 
         ],
         "Swiftilities/CoreDataStack": [
